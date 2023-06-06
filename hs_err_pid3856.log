@@ -1,0 +1,198 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 266338304 bytes for Failed to commit area from 0x0000000703800000 to 0x0000000713600000 of length 266338304.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (./src/hotspot/os/windows/os_windows.cpp:3386), pid=3856, tid=7296
+#
+# JRE version:  (11.0.17+8) (build )
+# Java VM: OpenJDK 64-Bit Server VM (11.0.17+8-LTS, mixed mode, sharing, tiered, compressed oops, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Dfile.encoding=windows-1250 -Duser.country=PL -Duser.language=pl -Duser.variant --module-path=C:\Users\kuchn\OneDrive\Pulpit\IdeaProjects\statki\build\libs\statki-1.0-SNAPSHOT.jar;C:\Users\kuchn\OneDrive\Pulpit\IdeaProjects\statki\build\classes\java\main;C:\Users\kuchn\.gradle\caches\modules-2\files-2.1\org.openjfx\javafx-fxml\17.0.2\5079f88d5345e988222c90a345ad682b7aaccad3\javafx-fxml-17.0.2-win.jar;C:\Users\kuchn\.gradle\caches\modules-2\files-2.1\org.openjfx\javafx-controls\17.0.2\707f290bacde2738c0a7e1d0b4a8193002c29cf7\javafx-controls-17.0.2-win.jar;C:\Users\kuchn\.gradle\caches\modules-2\files-2.1\org.openjfx\javafx-controls\17.0.2\f52640ea07a0d7fe2ac8b9f945ec58fa22ac1afd\javafx-controls-17.0.2.jar;C:\Users\kuchn\.gradle\caches\modules-2\files-2.1\org.openjfx\javafx-graphics\17.0.2\6f95886c8fed3e1b21370a199c3937846ef6b3cc\javafx-graphics-17.0.2-win.jar;C:\Users\kuchn\.gradle\caches\modules-2\files-2.1\org.openjfx\javafx-graphics\17.0.2\1eb7ce07e07ccc2fcb26103f07535e72069519d6\javafx-graphics-17.0.2.jar;C:\Users\kuchn\.gradle\caches\modules-2\files-2.1\org.openjfx\javafx-base\17.0.2\1bd6dc88b180a6239a5067320c2f0d7f3526e1d2\javafx-base-17.0.2-win.jar;C:\Users\kuchn\.gradle\caches\modules-2\files-2.1\org.openjfx\javafx-base\17.0.2\ca46f15a306175ac1513211e1d190a5baacd77cc\javafx-base-17.0.2.jar -Djdk.module.main=pl.edu.pwr.pkuchnowski.statki pl.edu.pwr.pkuchnowski.statki/pl.edu.pwr.pkuchnowski.statki.Ship.ShipApplication
+
+Host: 12th Gen Intel(R) Core(TM) i5-12600K, 16 cores, 15G,  Windows 11 , 64 bit Build 22621 (10.0.22621.1105)
+Time: Sun Jan 22 21:23:25 2023  Windows 11 , 64 bit Build 22621 (10.0.22621.1105) elapsed time: 0.006160 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000024f2e5fa800):  JavaThread "Unknown thread" [_thread_in_vm, id=7296, stack(0x000000c1f8900000,0x000000c1f8a00000)]
+
+Stack: [0x000000c1f8900000,0x000000c1f8a00000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x61f66a]
+V  [jvm.dll+0x7ac889]
+V  [jvm.dll+0x7adf78]
+V  [jvm.dll+0x7ae653]
+V  [jvm.dll+0x24fbe8]
+V  [jvm.dll+0x61c97a]
+V  [jvm.dll+0x611105]
+V  [jvm.dll+0x307b2c]
+V  [jvm.dll+0x3079b2]
+V  [jvm.dll+0x30c6c6]
+V  [jvm.dll+0x352d5f]
+V  [jvm.dll+0x352790]
+V  [jvm.dll+0x2e4b38]
+V  [jvm.dll+0x2e5c96]
+V  [jvm.dll+0x7866c7]
+V  [jvm.dll+0x787e4f]
+V  [jvm.dll+0x35fac9]
+V  [jvm.dll+0x769630]
+V  [jvm.dll+0x3cd5ef]
+V  [jvm.dll+0x3cf981]
+C  [jli.dll+0x5207]
+C  [ucrtbase.dll+0x29363]
+C  [KERNEL32.DLL+0x126bd]
+C  [ntdll.dll+0x5dfb8]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x0000024f2c3f6c60, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x0000024f2e615000 GCTaskThread "GC Thread#0" [stack: 0x000000c1f8a00000,0x000000c1f8b00000] [id=18632]
+  0x0000024f2e673000 ConcurrentGCThread "G1 Main Marker" [stack: 0x000000c1f8b00000,0x000000c1f8c00000] [id=25516]
+  0x0000024f2e675000 ConcurrentGCThread "G1 Conc#0" [stack: 0x000000c1f8c00000,0x000000c1f8d00000] [id=26816]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffbb7ec4307]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x0000024f2e5f6cb0] Heap_lock - owner thread: 0x0000024f2e5fa800
+
+Heap address: 0x0000000703800000, size: 4040 MB, Compressed Oops mode: Non-zero based: 0x0000000703800000
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (1 events):
+Event: 0.004 Loaded shared library C:\Users\kuchn\.jdks\corretto-11.0.17\bin\zip.dll
+
+
+Dynamic libraries:
+0x00007ff6f0c60000 - 0x00007ff6f0c6d000 	C:\Users\kuchn\.jdks\corretto-11.0.17\bin\java.exe
+0x00007ffc1dc50000 - 0x00007ffc1de64000 	C:\Windows\SYSTEM32\ntdll.dll
+0x00007ffc1d150000 - 0x00007ffc1d213000 	C:\Windows\System32\KERNEL32.DLL
+0x00007ffc1b4d0000 - 0x00007ffc1b86d000 	C:\Windows\System32\KERNELBASE.dll
+0x00007ffc1b2a0000 - 0x00007ffc1b3b1000 	C:\Windows\System32\ucrtbase.dll
+0x00007ffc14100000 - 0x00007ffc14117000 	C:\Users\kuchn\.jdks\corretto-11.0.17\bin\jli.dll
+0x00007ffc14120000 - 0x00007ffc14139000 	C:\Users\kuchn\.jdks\corretto-11.0.17\bin\VCRUNTIME140.dll
+0x00007ffc1da60000 - 0x00007ffc1dc0d000 	C:\Windows\System32\USER32.dll
+0x00007ffc1ba10000 - 0x00007ffc1ba36000 	C:\Windows\System32\win32u.dll
+0x00007ffc04c20000 - 0x00007ffc04eae000 	C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.608_none_a9444ca7c10bb01d\COMCTL32.dll
+0x00007ffc1c7a0000 - 0x00007ffc1c7c9000 	C:\Windows\System32\GDI32.dll
+0x00007ffc1d760000 - 0x00007ffc1d807000 	C:\Windows\System32\msvcrt.dll
+0x00007ffc1b870000 - 0x00007ffc1b982000 	C:\Windows\System32\gdi32full.dll
+0x00007ffc1b430000 - 0x00007ffc1b4ca000 	C:\Windows\System32\msvcp_win.dll
+0x00007ffc1d2f0000 - 0x00007ffc1d322000 	C:\Windows\System32\IMM32.DLL
+0x00007ffc06350000 - 0x00007ffc063eb000 	C:\Users\kuchn\.jdks\corretto-11.0.17\bin\msvcp140.dll
+0x00007ffbb7bd0000 - 0x00007ffbb8755000 	C:\Users\kuchn\.jdks\corretto-11.0.17\bin\server\jvm.dll
+0x00007ffc1d9b0000 - 0x00007ffc1da5e000 	C:\Windows\System32\ADVAPI32.dll
+0x00007ffc1d220000 - 0x00007ffc1d2c4000 	C:\Windows\System32\sechost.dll
+0x00007ffc1bc80000 - 0x00007ffc1bd95000 	C:\Windows\System32\RPCRT4.dll
+0x00007ffc1d140000 - 0x00007ffc1d148000 	C:\Windows\System32\PSAPI.DLL
+0x00007ffc17fb0000 - 0x00007ffc17fb9000 	C:\Windows\SYSTEM32\WSOCK32.dll
+0x00007ffc15210000 - 0x00007ffc1521a000 	C:\Windows\SYSTEM32\VERSION.dll
+0x00007ffc13700000 - 0x00007ffc13734000 	C:\Windows\SYSTEM32\WINMM.dll
+0x00007ffc1c330000 - 0x00007ffc1c3a1000 	C:\Windows\System32\WS2_32.dll
+0x00007ffc1a1b0000 - 0x00007ffc1a1c8000 	C:\Windows\SYSTEM32\kernel.appcore.dll
+0x00007ffc15bc0000 - 0x00007ffc15bd0000 	C:\Users\kuchn\.jdks\corretto-11.0.17\bin\verify.dll
+0x00007ffc18b60000 - 0x00007ffc18d8e000 	C:\Windows\SYSTEM32\DBGHELP.DLL
+0x00007ffc1c410000 - 0x00007ffc1c79a000 	C:\Windows\System32\combase.dll
+0x00007ffc1d8d0000 - 0x00007ffc1d9a7000 	C:\Windows\System32\OLEAUT32.dll
+0x00007ffc04530000 - 0x00007ffc04562000 	C:\Windows\SYSTEM32\dbgcore.DLL
+0x00007ffc1b990000 - 0x00007ffc1ba0b000 	C:\Windows\System32\bcryptPrimitives.dll
+0x00007ffc140d0000 - 0x00007ffc140f8000 	C:\Users\kuchn\.jdks\corretto-11.0.17\bin\java.dll
+0x00007ffc140c0000 - 0x00007ffc140ca000 	C:\Users\kuchn\.jdks\corretto-11.0.17\bin\jimage.dll
+0x00007ffc13e40000 - 0x00007ffc13e58000 	C:\Users\kuchn\.jdks\corretto-11.0.17\bin\zip.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Users\kuchn\.jdks\corretto-11.0.17\bin;C:\Windows\SYSTEM32;C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22621.608_none_a9444ca7c10bb01d;C:\Users\kuchn\.jdks\corretto-11.0.17\bin\server
+
+VM Arguments:
+jvm_args: -Dfile.encoding=windows-1250 -Duser.country=PL -Duser.language=pl -Duser.variant --module-path=C:\Users\kuchn\OneDrive\Pulpit\IdeaProjects\statki\build\libs\statki-1.0-SNAPSHOT.jar;C:\Users\kuchn\OneDrive\Pulpit\IdeaProjects\statki\build\classes\java\main;C:\Users\kuchn\.gradle\caches\modules-2\files-2.1\org.openjfx\javafx-fxml\17.0.2\5079f88d5345e988222c90a345ad682b7aaccad3\javafx-fxml-17.0.2-win.jar;C:\Users\kuchn\.gradle\caches\modules-2\files-2.1\org.openjfx\javafx-controls\17.0.2\707f290bacde2738c0a7e1d0b4a8193002c29cf7\javafx-controls-17.0.2-win.jar;C:\Users\kuchn\.gradle\caches\modules-2\files-2.1\org.openjfx\javafx-controls\17.0.2\f52640ea07a0d7fe2ac8b9f945ec58fa22ac1afd\javafx-controls-17.0.2.jar;C:\Users\kuchn\.gradle\caches\modules-2\files-2.1\org.openjfx\javafx-graphics\17.0.2\6f95886c8fed3e1b21370a199c3937846ef6b3cc\javafx-graphics-17.0.2-win.jar;C:\Users\kuchn\.gradle\caches\modules-2\files-2.1\org.openjfx\javafx-graphics\17.0.2\1eb7ce07e07ccc2fcb26103f07535e72069519d6\javafx-graphics-17.0.2.jar;C:\Users\kuchn\.gradle\caches\modules-2\files-2.1\org.openjfx\javafx-base\17.0.2\1bd6dc88b180a6239a5067320c2f0d7f3526e1d2\javafx-base-17.0.2-win.jar;C:\Users\kuchn\.gradle\caches\modules-2\files-2.1\org.openjfx\javafx-base\17.0.2\ca46f15a306175ac1513211e1d190a5baacd77cc\javafx-base-17.0.2.jar -Djdk.module.main=pl.edu.pwr.pkuchnowski.statki 
+java_command: pl.edu.pwr.pkuchnowski.statki/pl.edu.pwr.pkuchnowski.statki.Ship.ShipApplication
+java_class_path (initial): C:\Users\kuchn\OneDrive\Pulpit\IdeaProjects\statki\build\resources\main
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 12                                        {product} {ergonomic}
+     uint ConcGCThreads                            = 3                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 13                                        {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 266338304                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 4236247040                                {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 7594288                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122031976                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122031976                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+     bool UseCompressedClassPointers               = true                                 {lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                                 {lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\OpenJDK\jdk-11.0.17.8-hotspot\
+PATH=C:\Program Files\OpenJDK\jdk-11.0.17.8-hotspot\bin;C:\Program Files\OpenJDK\jre-11.0.17.8-hotspot\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\MATLAB\R2022b\bin;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Users\kuchn\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA 2022.2.3\bin;;C:\Users\kuchn\AppData\Local\Programs\Microsoft VS Code\bin
+USERNAME=kuchn
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 151 Stepping 2, GenuineIntel
+TMP=C:\Users\kuchn\AppData\Local\Temp
+TEMP=C:\Users\kuchn\AppData\Local\Temp
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 11 , 64 bit Build 22621 (10.0.22621.1105)
+OS uptime: 0 days 9:46 hours
+
+CPU:total 16 (initial active 16) (8 cores per cpu, 2 threads per core) family 6 model 151 stepping 2 microcode 0x1a, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx, sha, fma
+
+Memory: 4k page, system-wide physical 16157M (1097M free)
+TotalPageFile size 26349M (AvailPageFile size 100M)
+current process WorkingSet (physical memory assigned to process): 11M, peak: 11M
+current process commit charge ("private bytes"): 71M, peak: 325M
+
+vm_info: OpenJDK 64-Bit Server VM (11.0.17+8-LTS) for windows-amd64 JRE (11.0.17+8-LTS), built on Oct 14 2022 18:02:01 by "Administrator" with MS VC++ 15.9 (VS2017)
+
+END.

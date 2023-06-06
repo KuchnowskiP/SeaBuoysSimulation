@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" spacing="5.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.edu.pwr.pkuchnowski.statki.Central.CentralController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    <GridPane fx:id="map" alignment="CENTER" maxHeight="400" maxWidth="400" minHeight="400" minWidth="400" />
+   <Label fx:id="welcomeText" text="" />
+   <ProgressBar fx:id="progressBar" prefWidth="200.0" progress="0.0" visible="false" />
+    <Button fx:id="startButton" onAction="#onStartButtonClick" text="Start" />
+</VBox>

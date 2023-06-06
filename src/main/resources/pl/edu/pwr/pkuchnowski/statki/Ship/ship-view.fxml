@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.edu.pwr.pkuchnowski.statki.Ship.ShipController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+   <HBox alignment="CENTER" prefHeight="500" prefWidth="500" spacing="50.0">
+      <children>
+         <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+            <children>
+               <TextField editable="false" text="Last sent:">
+                  <font>
+                     <Font size="11.0" />
+                  </font>
+                  <VBox.margin>
+                     <Insets bottom="10.0" />
+                  </VBox.margin>
+               </TextField>
+               <TextField fx:id="thirdLastCommand" editable="false">
+                  <font>
+                     <Font size="9.0" />
+                  </font>
+               </TextField>
+               <TextField fx:id="secondLastCommand" editable="false">
+                  <font>
+                     <Font size="9.0" />
+                  </font>
+               </TextField>
+               <TextField fx:id="lastCommand" editable="false">
+                  <font>
+                     <Font size="11.0" />
+                  </font>
+               </TextField>
+            </children>
+         </VBox>
+         <TextFlow fx:id="textFlow" lineSpacing="5.0" maxHeight="200.0" prefHeight="100.0" prefWidth="200.0" textAlignment="CENTER" />
+      </children>
+   </HBox>
+    <Label fx:id="welcomeText" />
+    <Button fx:id="startButton" onAction="#onStartButtonClick" text="Start" />
+</VBox>
