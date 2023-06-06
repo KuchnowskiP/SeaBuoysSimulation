@@ -1,11 +1,10 @@
 package pl.edu.pwr.pkuchnowski.statki.Buoy;
 
-import java.util.Random;
-
+/*The class defines the buoy*/
 public class Buoy {
-    int index;
-    int posY;
-    int posX;
+    int index;      //buoy index
+    int posY;       //buoy vertical position on the map
+    int posX;       //buoy horizontal position on the map
 
     public void getBuoyPosition(Buoy buoy){
         int posX = 0;
