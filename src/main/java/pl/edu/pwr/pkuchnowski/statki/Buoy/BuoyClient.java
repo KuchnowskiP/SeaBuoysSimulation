@@ -6,21 +6,26 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
+
+/** @author Piotr Kuchnowski
+ *  The BuoyClient class provides connecting to the CentralServer */
 
 public class BuoyClient {
     List<int[][]> sectorsList = new ArrayList<>();
+
+    /** @author Piotr Kuchnowski
+     *  The BuoyServer class provides ServerSocket for ships to connect to when they are in sight of the buoy.
+     *  This class also calculates the sea level for a passing ship*/
     public class BuoyServer {
         private ServerSocket serverSocket;
         private Socket clientSocket;
         private PrintWriter out;
         private BufferedReader in;
         int[][] sector = new int[5][5];
+        /**Method calculateSeaLevel, knowing that the ship knows its position and the position of the buoy is known,
+         * calculates the location of the wave produced by the ship and adds the sector of the buoy to the list*/
         public void calculateSeaLevel(String input, Buoy buoy){
             fillTheSector();
             String[] divider;
@@ -70,9 +75,9 @@ public class BuoyClient {
                     }
                 }
             }
-            synchronized (sectorsList) {
+           synchronized (sectorsList) {
                 sectorsList.add(sector);
-            }
+           }
             sector = new int[5][5];
         }
         public void fillTheSector(){
@@ -89,7 +94,7 @@ public class BuoyClient {
             serverSocket = new ServerSocket(port);
             Buoy buoy = new Buoy();
             buoy.setIndex(port-58100);
-            buoy.getBuoyPosition(buoy);
+            buoy.setBuoyPosition(buoy);
             while(true) {
                 clientSocket = serverSocket.accept();
                 System.out.println("World connected to buoy: " + (port - 58100));
@@ -170,17 +175,5 @@ public class BuoyClient {
             } catch (InterruptedException e) {
             }
         }
-    }
-
-    public String sendMessage(String msg) throws IOException {
-        out.println(msg);
-        String resp = in.readLine();
-        return resp;
-    }
-
-    public void stopConnection() throws IOException {
-        in.close();
-        out.close();
-        clientSocket.close();
     }
 }

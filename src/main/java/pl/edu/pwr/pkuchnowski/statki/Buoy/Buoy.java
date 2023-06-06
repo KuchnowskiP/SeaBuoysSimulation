@@ -1,12 +1,13 @@
 package pl.edu.pwr.pkuchnowski.statki.Buoy;
 
-/*The class defines the buoy*/
+/** @author Piotr Kuchnowski
+ *  The Buoy class provides variables and methods for buoy object, such as positioning on the map or indexing*/
 public class Buoy {
     int index;      //buoy index
     int posY;       //buoy vertical position on the map
     int posX;       //buoy horizontal position on the map
 
-    public void getBuoyPosition(Buoy buoy){
+    public void setBuoyPosition(Buoy buoy){
         int posX = 0;
         int posY = 0;
         for(int i = 0; i < 8; i++) {

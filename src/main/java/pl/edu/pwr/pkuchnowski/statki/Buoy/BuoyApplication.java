@@ -6,10 +6,13 @@ import java.io.StringWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+/** @author Piotr Kuchnowski
+ *  The BuoyApplication class starts JavaFX app for one buoy instance*/
+
 public class BuoyApplication {
     private static BuoyClient client = new BuoyClient();
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args){
 
         Runnable buoyThreadRunnable = () -> {
             try {

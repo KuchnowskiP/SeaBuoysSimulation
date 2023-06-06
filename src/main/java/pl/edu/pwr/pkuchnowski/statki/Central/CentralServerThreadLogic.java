@@ -6,6 +6,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import pl.edu.pwr.pkuchnowski.statki.Buoy.Buoy;
 
+/** @author Piotr Kuchnowski
+ *  The CentralServerThreadLogic class provides operating logic - methods for the server receiving the buoy*/
+
 public class CentralServerThreadLogic {
     public void analyzeInput(GridPane map, Buoy buoy, String inputLine, int buoyCounter){
         if (inputLine.length() == 25 && buoyCounter == 64) {
@@ -14,39 +17,29 @@ public class CentralServerThreadLogic {
             for (int i = 0; i < 25; i++) {
                 seaLevel[i] = new Label(String.valueOf(inputCharArray[i]));
             }
-            //seaLevel[0] = new Label(String.valueOf(buoy.getIndex()));
-            buoy.getBuoyPosition(buoy);
-            higherFor:
-                for (int i = 2; i < 40; i = i + 5) {
-                    for (int j = 2; j < 40; j = j + 5) {
-                        if (buoy.getPosX() == j && buoy.getPosY() == i) {
-                            //System.out.println("Buoy: " + buoy.getIndex() + " Counter: " + indexCounter);
-                            System.out.println(buoy.getIndex() +": "+ inputLine);
-                            int finalI = i - 2;
+            buoy.setBuoyPosition(buoy);
 
-                            int finalJ = j - 2;
+            System.out.println(buoy.getIndex() +": "+ inputLine);
 
-                            final int[] labelCounter = {0};
-                            for (int k = 0; k < 5; k++) {
-                                for (int l = 0; l < 5; l++) {
-                                    int finalK = k;
-                                    int finalL = l;
-                                    Platform.runLater(() -> {
-                                    synchronized (map) {
-                                        map.getChildren().removeIf(node -> GridPane.getColumnIndex(node) == finalJ + finalL && GridPane.getRowIndex(node) == finalI + finalK);
-                                        map.add(seaLevel[labelCounter[0]], finalJ + finalL, finalI + finalK);
-                                        labelCounter[0]++;
-                                    }
-                                    });
-                                }
-                            }
-                            Platform.runLater(() -> recreateSector(finalJ, finalI, map));
+            int finalI = buoy.getPosY() - 2;
 
-                            break higherFor;
-                        }
+            int finalJ = buoy.getPosX() - 2;
+
+            final int[] labelCounter = {0};
+            for (int k = 0; k < 5; k++) {
+                for (int l = 0; l < 5; l++) {
+                    int finalK = k;
+                    int finalL = l;
+                    Platform.runLater(() -> {
+                    synchronized (map) {
+                        map.getChildren().removeIf(node -> GridPane.getColumnIndex(node) == finalJ + finalL && GridPane.getRowIndex(node) == finalI + finalK);
+                        map.add(seaLevel[labelCounter[0]], finalJ + finalL, finalI + finalK);
+                        labelCounter[0]++;
                     }
+                    });
                 }
-
+            }
+            Platform.runLater(() -> recreateSector(finalJ, finalI, map));
         }
     }
     public synchronized void recreateSector(int j, int i, GridPane map){

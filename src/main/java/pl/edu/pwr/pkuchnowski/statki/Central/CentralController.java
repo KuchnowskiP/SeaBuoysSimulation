@@ -21,7 +21,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CentralController {
-    public List<Buoy> buoyList;
     @FXML
     public ProgressBar progressBar;
     @FXML
@@ -40,7 +39,7 @@ public class CentralController {
             this.port = port;
         }
 
-        public synchronized void increaseBuoyCounter(Buoy buoy){
+        public synchronized void increaseBuoyCounter(){
             buoyCounter++;
         }
 
@@ -49,9 +48,9 @@ public class CentralController {
             serverSocket = new ServerSocket(port);
             clientSocket = serverSocket.accept();
             Buoy buoy = new Buoy();
-            increaseBuoyCounter(buoy);
+            increaseBuoyCounter();
             buoy.setIndex(port - 58000);
-            buoy.getBuoyPosition(buoy);
+            buoy.setBuoyPosition(buoy);
             System.out.println("Buoy: " + buoy.getIndex() + " X: " + buoy.getPosX() + " Y: " + buoy.getPosY());
             Platform.runLater(() -> {
                 welcomeText.setText("Buoys connected: " + buoyCounter);
@@ -119,7 +118,6 @@ public class CentralController {
                     }
                 };
                 Thread buoyServerThread = new Thread(buoyServerRunnable);
-                //buoyServerThread.setName(String.valueOf(port));
                 buoyServerThread.start();
                 port++;
             }

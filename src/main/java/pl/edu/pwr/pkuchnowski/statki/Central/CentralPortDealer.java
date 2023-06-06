@@ -8,6 +8,10 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+/** @author Piotr Kuchnowski
+ *  The CentralPortDealer class provides the allocation of ports to successively switched on buoys. Allocates exactly 64 ports.
+ *  The port allocation thread is called from CentralApplication class when it starts*/
+
 public class CentralPortDealer {
     List<Integer> occupiedPorts = new ArrayList<>();
     public void start(int port) throws IOException, InterruptedException {
@@ -24,9 +28,7 @@ public class CentralPortDealer {
                 break;
             }
             occupiedPorts.add(passedPort);
-            //System.out.println("Passin port " + passedPort);
             out.println(passedPort);
-            //Thread.sleep(100);
         }
 
     }

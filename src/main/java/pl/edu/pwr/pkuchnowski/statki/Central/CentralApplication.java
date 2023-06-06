@@ -8,6 +8,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/** @author Piotr Kuchnowski
+ *  The CentralApplication class starts JavaFX app for Central
+ *  The Central is responsible for receiving data from buoys*/
 
 public class CentralApplication extends Application {
 
@@ -19,6 +22,7 @@ public class CentralApplication extends Application {
         stage.setScene(scene);
         stage.show();
     }
+    /**When  CentralApplication starts, it launches the centralPortDealer thread*/
     static CentralPortDealer centralPortDealer = new CentralPortDealer();
     public static void main(String[] args) {
         centralPortDealer.runPortDealerThread();

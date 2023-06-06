@@ -1,10 +1,14 @@
+/** @author Piotr Kuchnowski
+ *  The ShipApplication class starts JavaFX app for one ship instance*/
+
 package pl.edu.pwr.pkuchnowski.statki.Ship;
 
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+
 
 import java.io.IOException;
 public class ShipApplication extends Application {
