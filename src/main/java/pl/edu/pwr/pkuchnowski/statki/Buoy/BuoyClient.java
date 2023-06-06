@@ -10,7 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /** @author Piotr Kuchnowski
- *  The BuoyClient class provides connecting to the CentralServer */
+ *  The BuoyClient class provides connecting to the CentralServer
+ *  It calculates sea level in a loop and sends the results to the CentralServer*/
 
 public class BuoyClient {
     List<int[][]> sectorsList = new ArrayList<>();
@@ -25,7 +26,7 @@ public class BuoyClient {
         private BufferedReader in;
         int[][] sector = new int[5][5];
         /**Method calculateSeaLevel, knowing that the ship knows its position and the position of the buoy is known,
-         * calculates the location of the wave produced by the ship and adds the sector of the buoy to the list*/
+         * calculates the location of the wave produced by the ship and adds the sector of the buoy to the list of registered waves*/
         public void calculateSeaLevel(String input, Buoy buoy){
             fillTheSector();
             String[] divider;
@@ -125,6 +126,8 @@ public class BuoyClient {
         Thread buoyServerThread = new Thread(buoyServerRunnable);
         buoyServerThread.start();
     }
+
+    /**Method sumWaves, calculates the sum of waves when two ships passed close enough to each other*/
     public int[][] sumWaves(){
         synchronized (sectorsList) {
             int[][] result = new int[5][5];

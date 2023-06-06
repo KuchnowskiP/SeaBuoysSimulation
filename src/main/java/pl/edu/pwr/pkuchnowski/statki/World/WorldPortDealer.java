@@ -10,6 +10,10 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+/** @author Piotr Kuchnowski
+ *  The WorldPortDealer class provides the allocation of ports to successively connecting ships. It allocates as many ports as requests it receives.
+ *  The port allocation thread is called from WorldApplication class when it starts*/
+
 public class WorldPortDealer {
     private ServerSocket serverSocket;
     private Socket clientSocket;

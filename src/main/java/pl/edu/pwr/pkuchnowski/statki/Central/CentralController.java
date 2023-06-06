@@ -55,7 +55,6 @@ public class CentralController {
             Platform.runLater(() -> {
                 welcomeText.setText("Buoys connected: " + buoyCounter);
                 double progress = ((double) buoyCounter) /64;
-                //System.out.println(progress);
                 progressBar.setProgress(progress);
                 if(buoyCounter == 64){
                     progressBar.setVisible(false);

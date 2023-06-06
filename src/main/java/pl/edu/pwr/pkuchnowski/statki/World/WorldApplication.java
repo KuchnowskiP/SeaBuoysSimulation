@@ -4,18 +4,8 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import pl.edu.pwr.pkuchnowski.statki.Central.CentralApplication;
-import pl.edu.pwr.pkuchnowski.statki.Ship.Ship;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
 
 public class WorldApplication extends Application {
 

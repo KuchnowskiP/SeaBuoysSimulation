@@ -22,7 +22,6 @@ public class WorldBuoyClient {
         in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
         out = new PrintWriter(clientSocket.getOutputStream(), true);
         System.out.println("Sending info to buoy number: " + (port - 58100));
-        //Thread.sleep(500);
         out.println(posX+";"+posY);
         System.out.println(in.readLine());
         clientSocket.close();
@@ -30,9 +29,7 @@ public class WorldBuoyClient {
     public void informer(int port){
         try {
             startConnection("localhost", port);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (InterruptedException e) {
+        } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
     }
