@@ -127,7 +127,7 @@ public class BuoyClient {
         buoyServerThread.start();
     }
 
-    /**Method sumWaves, calculates the sum of waves when two ships passed close enough to each other*/
+    /**Method sumWaves, calculates the sum of waves when at least two ships passed close enough to each other*/
     public int[][] sumWaves(){
         synchronized (sectorsList) {
             int[][] result = new int[5][5];
