@@ -24,7 +24,7 @@ public class BuoyClient {
         private Socket clientSocket;
         private PrintWriter out;
         private BufferedReader in;
-        int[][] sector = new int[5][5];
+        int[][] sector = new int[5][5]; //representation of one 5x5 map sector being watched by the buoy
         /**Method calculateSeaLevel, knowing that the ship knows its position and the position of the buoy is known,
          * calculates the location of the wave produced by the ship and adds the sector of the buoy to the list of registered waves*/
         public void calculateSeaLevel(String input, Buoy buoy){
