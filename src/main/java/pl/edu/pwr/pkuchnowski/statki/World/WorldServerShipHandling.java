@@ -6,15 +6,14 @@ import javafx.scene.layout.Region;
 import javafx.scene.shape.Rectangle;
 import pl.edu.pwr.pkuchnowski.statki.Ship.Ship;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.List;
-import java.util.Objects;
 import java.util.Random;
-
+/** @author Piotr Kuchnowski
+ * WorldServerShipHandling class is responsible for controlling ships movement.
+ * Drawing their starting positions, movements on the map and checking collisions */
 public class WorldServerShipHandling {
     public String getRandomUnoccupiedField(List<Ship> shipsAtTheSea) {
         Random random = new Random();
@@ -36,7 +35,7 @@ public class WorldServerShipHandling {
         }
         return randomizedXPos + ";" + randomizedYPos;
     }
-
+    /** generateShip generates the ship while it is being initialized*/
     public synchronized Ship generateShip(PrintWriter out, List<Ship> shipsAtTheSea, GridPane map){
         Ship generatedShip = new Ship();
         String[] divider;
@@ -52,7 +51,7 @@ public class WorldServerShipHandling {
 
         WorldBuoyClient worldBuoyClient = new WorldBuoyClient(posX,posY);
         Thread informant = new Thread(() -> {
-            worldBuoyClient.informThaBuoys();
+            worldBuoyClient.informBuoys();
         });
         informant.start();
         //shipsAtTheSea.add(generatedShip);
@@ -63,6 +62,8 @@ public class WorldServerShipHandling {
 
         return generatedShip;
     }
+    /** checkCollisions provides checking if the ship that just moved crashed with other ship
+     * If so, it removes crashed ships from the map*/
     public void checkCollisions(List<Ship> shipsAtTheSea, Ship ourShip, GridPane map) throws IOException {
         for (Ship ship : shipsAtTheSea) {
             if (ship.getIndex() != ourShip.getIndex()) {
@@ -148,10 +149,13 @@ public class WorldServerShipHandling {
         }
         System.out.println("to: " + ship.getPosX() +";" + ship.getPosY());
         Thread informant = new Thread(() -> {
-            worldBuoyClient.informThaBuoys();
+            worldBuoyClient.informBuoys();
         });
         informant.start();
     }
+
+    /** tryToMoveTheShip method prevents ship from going out of the map
+     * If move is allowed, it is calling moveTheShip method*/
     public synchronized boolean tryToMoveTheShip(List<Ship> shipsAtTheSea, GridPane map, String direction, Ship ship){
         int checkingPosY = ship.getPosY();
         int checkingPosX = ship.getPosX();

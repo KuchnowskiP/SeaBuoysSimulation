@@ -7,6 +7,10 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/** @author Piotr Kuchnowski
+ *  The WorldApplication class starts JavaFX app for World
+ *  The World is responsible for receiving data from ships, and sending data to buoys*/
+
 public class WorldApplication extends Application {
 
     @Override

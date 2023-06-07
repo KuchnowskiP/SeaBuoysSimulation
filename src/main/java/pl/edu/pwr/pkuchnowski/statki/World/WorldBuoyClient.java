@@ -6,12 +6,15 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 
+/** @author Piotr Kuchnowski
+ * The WorldBuoyClient class provides client to inform buoys about passing ships nearby*/
+
 public class WorldBuoyClient {
     int posX;
     int posY;
     public WorldBuoyClient(int posX, int posY){
         this.posX = posX;
-        this.posY = posY;
+        this.posY = posY; //coordinates of the calling ship
     }
     private Socket clientSocket;
     private PrintWriter out;
@@ -26,6 +29,7 @@ public class WorldBuoyClient {
         System.out.println(in.readLine());
         clientSocket.close();
     }
+
     public void informer(int port){
         try {
             startConnection("localhost", port);
@@ -33,7 +37,10 @@ public class WorldBuoyClient {
             throw new RuntimeException(e);
         }
     }
-    public void informThaBuoys(){
+
+    /**informBuoys method basing on ship positions, calculates which buoys should receive information
+     * about passing ship. Then it sends ship's coordinates to calculated buoys through informer method*/
+    public void informBuoys(){
         int port;
         int posYMinus2 = posY - 2;
         int posXMinus2 = posX - 2;

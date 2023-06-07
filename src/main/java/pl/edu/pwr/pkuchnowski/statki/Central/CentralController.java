@@ -20,12 +20,18 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 
+/** @author Piotr Kuchnowski
+ * The CentralController class provides drawing the Central World Map in the Central JavaFX app.
+ * It also provides servers for buoys to connect to. It reads data from buoys positions and draw sea levels on the map.*/
+
 public class CentralController {
     @FXML
     public ProgressBar progressBar;
     @FXML
     public Button startButton;
-
+    /**@author Piotr Kuchnowski
+     * The CentralServer class provides servers for buoys. It sets their positions and indexes
+     * and receives data from them which are used for drawing sea levels on the map */
     public class CentralServer {
         private ServerSocket serverSocket;
         private Socket clientSocket;

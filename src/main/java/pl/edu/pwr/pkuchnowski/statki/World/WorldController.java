@@ -22,12 +22,17 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Random;
+
+/** @author Piotr Kuchnowski
+ * The WorldController class provides drawing the World Map in the World JavaFX app.
+ * It also provides servers for shipsClients to connect to. It reads ships positions and draw them on the map.*/
 
 public class WorldController {
     public List<Ship> shipsAtTheSea = new ArrayList<>();
     public Button startButton;
 
+    /**@author Piotr Kuchnowski
+     * The WorldServer class provides servers for ships. It receives their coordinates which are used for drawing them on the map */
     public class WorldServer {
         private ServerSocket serverSocket;
         private Socket clientSocket;
@@ -89,6 +94,7 @@ public class WorldController {
     @FXML
     GridPane map;
 
+    /** drawTheSea method draws empty sea, without ships, after the WorldApplication start button being pressed*/
     public void drawTheSea() {
         map.getColumnConstraints().clear();
         map.getRowConstraints().clear();

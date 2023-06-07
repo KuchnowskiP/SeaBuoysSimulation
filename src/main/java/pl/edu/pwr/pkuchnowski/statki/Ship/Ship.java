@@ -3,7 +3,7 @@ package pl.edu.pwr.pkuchnowski.statki.Ship;
 import java.util.Random;
 
 /** @author Piotr Kuchnowski
- *  The Ship class provides variables and methods for ship object, such as moving around the map*/
+ *  The Ship class provides variables and methods for ship object*/
 
 public class Ship {
     int posX;

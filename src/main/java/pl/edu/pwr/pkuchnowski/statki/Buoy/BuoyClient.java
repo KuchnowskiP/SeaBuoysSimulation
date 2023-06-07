@@ -17,7 +17,7 @@ public class BuoyClient {
     List<int[][]> sectorsList = new ArrayList<>();
 
     /** @author Piotr Kuchnowski
-     *  The BuoyServer class provides ServerSocket for ships to connect to when they are in sight of the buoy.
+     *  The BuoyServer class provides ServerSocket for WorldBuoyClient to connect to when there are ships in sight of the buoy.
      *  This class also calculates the sea level for a passing ship*/
     public class BuoyServer {
         private ServerSocket serverSocket;
@@ -114,6 +114,7 @@ public class BuoyClient {
     private BufferedReader in;
     StringBuilder seaLevel = new StringBuilder();
     BuoyServer buoyServer = new BuoyServer();
+    /**runServer method opens server for ships passing by*/
     public void runServer(int port){
         Runnable buoyServerRunnable = () -> {
             try {
@@ -148,6 +149,8 @@ public class BuoyClient {
             return result;
         }
     }
+    /**startConnection connects buoy to the CentralServer, then it waits for its new port
+     * It also repetitively sends sea levels from its sector to the Central*/
     public void startConnection(String ip, int port) throws IOException {
         clientSocket = new Socket(ip, port);
         in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
@@ -155,7 +158,7 @@ public class BuoyClient {
             int newPort = Integer.parseInt(in.readLine());
             startConnection("localhost", newPort);
         }
-        runServer(port);
+        runServer(port); //opens server for passing ships
         out = new PrintWriter(clientSocket.getOutputStream(), true);
 
         while(true){

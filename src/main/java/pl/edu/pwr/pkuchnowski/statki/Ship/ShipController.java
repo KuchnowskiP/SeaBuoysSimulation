@@ -16,6 +16,12 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Random;
 
+
+/** @author Piotr Kuchnowski
+ * The ShipController class provides drawing the ship interface in Ship JavaFX app showing three last commands sent by ship to the World,
+ * its current possition and scan results. Scan returns positions of other ships.
+ * It also provides ShipClient which connects to the World and ShipServers wich receives crash information.*/
+
 public class ShipController {
     @FXML
     public TextField thirdLastCommand;
@@ -27,9 +33,12 @@ public class ShipController {
     @FXML
     public Button startButton;
 
-
+    /** @author Piotr Kuchnowski
+     * The ShipClient class connects to the WorldServer and sends it move and scan commands.*/
     public class ShipClient {
         public boolean sailing = true;
+        /** @author Piotr Kuchnowski
+         * The ShipServer class is waitnig for information from the World. If ship craszed into another, it turns the app off.*/
             public class ShipServer {
                 private ServerSocket serverSocket;
                 private Socket clientSocket;

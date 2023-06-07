@@ -11,6 +11,12 @@ import javafx.stage.Stage;
 
 
 import java.io.IOException;
+
+/** @author Piotr Kuchnowski
+ *  The ShipApplication class starts JavaFX app for one ship instance
+ *  Ship generates 5x5 waves while moving. Wave has values 4 at ship possition and descending by 1 to 0 at every further
+ *  square on the map*/
+
 public class ShipApplication extends Application {
 
     @Override

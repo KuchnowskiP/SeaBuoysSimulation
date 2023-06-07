@@ -7,7 +7,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 /** @author Piotr Kuchnowski
- *  The BuoyApplication class starts JavaFX app for one buoy instance*/
+ *  The BuoyApplication class starts JavaFX app for one buoy instance
+ *  The Buoy receives data about ships from the World, calculates sea levels and passing them to the Central*/
 
 public class BuoyApplication {
     private static BuoyClient client = new BuoyClient();
